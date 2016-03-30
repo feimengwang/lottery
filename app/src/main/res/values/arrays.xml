@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="sx">
+        <item>@string/sx1</item>
+        <item>@string/sx2</item>
+        <item>@string/sx3</item>
+        <item>@string/sx4</item>
+        <item>@string/sx5</item>
+        <item>@string/sx6</item>
+        <item>@string/sx7</item>
+        <item>@string/sx8</item>
+        <item>@string/sx9</item>
+        <item>@string/sx10</item>
+        <item>@string/sx11</item>
+        <item>@string/sx12</item>
+    </string-array>
+
+    <array name="rule">
+        <item>@raw/s14sf</item>
+        <item>@raw/s1x5</item>
+        <item>@raw/df61</item>
+        <item>@raw/dlt</item>
+        <item>@raw/fc3d</item>
+        <item>@raw/k3</item>
+        <item>@raw/pl3</item>
+        <item>@raw/pl5</item>
+        <item>@raw/qlc</item>
+        <item>@raw/qyh</item>
+        <item>@raw/ssc</item>
+        <item>@raw/ssq</item>
+    </array>
+
+    <string-array name="rule_name">
+       <item>@string/s14sf</item>
+        <item>@string/s1x5</item>
+        <item>@string/df61</item>
+        <item>@string/dlt</item>
+        <item>@string/fc3d</item>
+        <item>@string/k3</item>
+        <item>@string/pl3</item>
+        <item>@string/pl5</item>
+        <item>@string/qlc</item>
+        <item>@string/qyh</item>
+        <item>@string/ssc</item>
+        <item>@string/ssq</item>
+    </string-array>
+
+</resources>

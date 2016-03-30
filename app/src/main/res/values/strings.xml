@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="SSQ">双色球</string>
+    <string name="DLT">大乐透</string>
+    <string name="FC3D">福彩3D</string>
+    <string name="GD11X5">新11选5</string>
+    <string name="JLK3">新快3</string>
+    <string name="JXSSC">新时时彩</string>
+    <string name="PL3">排列3</string>
+    <string name="PL5">排列5</string>
+    <string name="QLC">七乐彩</string>
+    <string name="QXC">七星彩</string>
+    <string name="DF6J1">东方6+1</string>
+    <string name="HD15X5">华东15选5 </string>
+    <string name="CQSSC">时时彩</string>
+
+    <string name="sx1">鼠</string>
+    <string name="sx2">牛</string>
+    <string name="sx3">虎</string>
+    <string name="sx4">兔</string>
+    <string name="sx5">龙</string>
+    <string name="sx6">蛇</string>
+    <string name="sx7">马</string>
+    <string name="sx8">羊</string>
+    <string name="sx9">猴</string>
+    <string name="sx10">鸡</string>
+    <string name="sx11">狗</string>
+    <string name="sx12">猪</string>
+    <string name="JX11X5">11选5</string>
+    <string name="SD11X5">老11选5</string>
+    <string name="CQKL10">幸运农场</string>
+    <string name="SDQYH">群英会</string>
+    <string name="GDKL10">快乐十分</string>
+    <string name="GXK3">快3</string>
+    <string name="JSK3">老快3</string>
+    <string name="SFC">14场胜负彩</string>
+    <string name="kj_detail">开奖详情</string>
+    <string name="kj_last">最新开奖</string>
+    <string name="hello">Hello World, CaipiaoActivity!</string>
+    <string name="app_name">陶陶彩票</string>
+    <string name="setting">系统设置</string>
+    <string name="rule">开奖规则</string>
+    <string name="history">历史开奖</string>
+    <string name="s14sf">中国足球彩票胜负游戏规则</string>
+    <string name="s1x5"> 11选5玩法规则</string>
+    <string name="df61">东方6+1玩法规则</string>
+    <string name="dlt">大乐透玩法规则</string>
+    <string name="fc3d"> 福彩3D玩法规则</string>
+    <string name="k3">快3玩法规则</string>
+    <string name="pl3">排三玩法规则</string>
+    <string name="pl5"> 排列五玩法规则</string>
+    <string name="qlc">七乐彩玩法规则</string>
+    <string name="qyh">山东群英会官方玩法规则</string>
+    <string name="ssc">时时彩玩法规则</string>
+    <string name="ssq">双色球玩法规则</string>
+
+    <string name="st_app_name">SlidingTutorialLibrary</string>
+    <string name="st_skip">Skip</string>
+
+
+    <string name="loadMore">点击加载更多...</string>
+    <string name="loadEnd">加载完毕！</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="lottery_item">奖项</string>
+    <string name="lottery_count">中奖注数</string>
+    <string name="lottery_num">单注奖金</string>
+
+    <!--tPhase.setText("第" + lotteryDetail.getIssue() + "期");-->
+    <!--tPool.setText("奖池滚存" + lotteryDetail.getMoney() + "元");-->
+    <!--tSale.setText("本期销售" + lotteryDetail.getSale() + "元");-->
+    <!--tTime.setText("开奖日期" + lotteryDetail.getDate());-->
+
+    <string name="lottery_issue">第%1$s期</string>
+    <string name="lottery_issue2">%1$s第%2$s期</string>
+    <string name="lottery_pool">奖池滚存%1$s元</string>
+    <string name="lottery_sale">本期销售%1$s元</string>
+    <string name="lottery_time">开奖日期%1$s</string>
+    <string name="lottery_history_title">%1$s历史开奖</string>
+</resources>

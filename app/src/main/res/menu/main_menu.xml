@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/history"
+        android:checkable="false"
+        android:icon="@drawable/history_menu_button"
+        android:title="@string/history"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/rule"
+        android:checkable="false"
+        android:icon="@drawable/rule_menu_button"
+        android:title="@string/rule"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/setting"
+        android:checkable="false"
+        android:icon="@drawable/set_menu_button"
+        android:title="@string/setting"
+        app:showAsAction="never" />
+</menu>
