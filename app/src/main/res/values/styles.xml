@@ -8,4 +8,7 @@
     <style name="Toobar" parent="ThemeOverlay.AppCompat.Light">
 
     </style>
+    <style name="ColorTranslucentTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
 </resources>

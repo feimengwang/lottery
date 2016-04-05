@@ -21,11 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingActivity"/>
-        <activity android:name=".RuleActivity"  />
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".HistoryActivity"/>
-        <activity android:name=".MainActivity" android:launchMode="singleInstance"/>
+        <activity android:name=".SettingActivity" android:theme="@style/ColorTranslucentTheme"/>
+        <activity android:name=".RuleActivity" android:theme="@style/ColorTranslucentTheme" />
+        <activity android:name=".AboutActivity" android:theme="@style/ColorTranslucentTheme"/>
+        <activity android:name=".HistoryActivity" android:theme="@style/ColorTranslucentTheme"/>
+        <activity android:name=".MainActivity" android:launchMode="singleInstance" android:theme="@style/ColorTranslucentTheme"/>
     </application>
 
 </manifest>

@@ -14,7 +14,7 @@ import android.view.Window;
 
 import cn.true123.lottery.listener.OnFragmentChangeListener;
 
-public class HistoryActivity extends AppCompatActivity implements OnFragmentChangeListener{
+public class HistoryActivity extends BaseActivity implements OnFragmentChangeListener{
 
 
 	private FragmentManager fragmentmanager;
@@ -23,8 +23,8 @@ public class HistoryActivity extends AppCompatActivity implements OnFragmentChan
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.activity_history_layout);
+//		requestWindowFeature(Window.FEATURE_NO_TITLE);
+//		setContentView(R.layout.activity_history_layout);
 
 		toolbar= (Toolbar) findViewById(R.id.toolbar);
 		toolbar.setTitleTextColor(Color.WHITE);
@@ -35,6 +35,12 @@ public class HistoryActivity extends AppCompatActivity implements OnFragmentChan
 		fragmentmanager = getSupportFragmentManager();
 		nextFragment(HistoryFragment.getInstance(this));
 	}
+
+	@Override
+	public int getContentViewResId() {
+		return R.layout.activity_history_layout;
+	}
+
 	private OnClickListener clickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {

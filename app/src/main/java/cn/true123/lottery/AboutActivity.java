@@ -10,13 +10,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 
-public class AboutActivity extends AppCompatActivity {
+public class AboutActivity extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.about_layout);
+//		requestWindowFeature(Window.FEATURE_NO_TITLE);
+//		setContentView(R.layout.about_layout);
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		toolbar.setTitleTextColor(Color.WHITE);
 		toolbar.setTitle("关于本软件");
@@ -31,5 +31,10 @@ public class AboutActivity extends AppCompatActivity {
 		});
 
 
+	}
+
+	@Override
+	public int getContentViewResId() {
+		return R.layout.about_layout;
 	}
 }

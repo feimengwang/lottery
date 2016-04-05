@@ -11,13 +11,13 @@ import android.view.View.OnClickListener;
 
 import cn.true123.lottery.utils.LotteryUtils;
 
-public class RuleActivity extends AppCompatActivity {
+public class RuleActivity extends BaseActivity {
     Toolbar toolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_layout);
+        //setContentView(R.layout.setting_layout);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.go_back);
         toolbar.setNavigationOnClickListener(new OnClickListener() {
@@ -46,5 +46,10 @@ public class RuleActivity extends AppCompatActivity {
 //			}
 //		});
 
+    }
+
+    @Override
+    public int getContentViewResId() {
+        return R.layout.setting_layout;
     }
 }

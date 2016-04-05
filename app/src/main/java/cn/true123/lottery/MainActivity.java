@@ -24,17 +24,17 @@ import cn.true123.lottery.application.LotteryApplication;
 import cn.true123.lottery.listener.OnFragmentChangeListener;
 import cn.true123.lottery.utils.LotteryUtils;
 
-public class MainActivity extends AppCompatActivity implements OnFragmentChangeListener {
+public class MainActivity extends BaseActivity implements OnFragmentChangeListener {
     private static final String TAG = "MainActivity";
     private Toolbar toolbar;
     FragmentManager fragmentmanager;
     private long preBackClickTime = 0;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_main);
+//        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+//        setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         //toolbar.setNavigationIcon(R.drawable.logo);
         fragmentmanager = getSupportFragmentManager();
@@ -66,6 +66,11 @@ public class MainActivity extends AppCompatActivity implements OnFragmentChangeL
 
         nextFragment(LastNumFragment.getInstance(this));
 
+    }
+
+    @Override
+    public int getContentViewResId() {
+        return R.layout.activity_main;
     }
 
     @Override
