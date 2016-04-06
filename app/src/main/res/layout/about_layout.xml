@@ -7,28 +7,31 @@
 
     <include layout="@layout/toolbar" />
 
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="false"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/white"
-        android:text="使用说明：本App使用360数据接口，如有侵犯请联系作者，本程序仅用于学习！"
-        android:textColor="@android:color/black"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:text="使用说明：本App使用360数据接口，如有侵犯请联系作者，本程序仅用于学习！"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:autoLink="email|web"
-        android:background="@color/white"
-        android:singleLine="false"
-        android:text="联系作者：feimeng0530@163.com"
-        android:textColor="@android:color/black"
-        android:textSize="15sp"
-        android:textStyle="bold" />
-
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:autoLink="email|web"
+            android:singleLine="false"
+            android:text="联系作者：feimeng0530@163.com"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 </LinearLayout>
