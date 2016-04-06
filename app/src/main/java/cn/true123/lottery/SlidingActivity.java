@@ -2,20 +2,15 @@ package cn.true123.lottery;
 
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 
 import cn.true123.lottery.listener.SlidingListener;
-import cn.true123.lottery.slidingtutorial.SimplePagerFragment;
 import cn.true123.lottery.utils.LotteryUtils;
 
-public class SlidingActivity extends AppCompatActivity implements SlidingListener{
+public class SlidingActivity extends AppCompatActivity implements SlidingListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,22 +18,22 @@ public class SlidingActivity extends AppCompatActivity implements SlidingListene
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.sliding_layout);
-        boolean isFirst = LotteryUtils.getBooleanFromSharePreferences(this,"isFirst",true);
-        if(isFirst) {
+        boolean isFirst = LotteryUtils.getBooleanFromSharePreferences(this, "isFirst", true);
+        if (isFirst) {
             startSlide();
-        }else{
+        } else {
             gotoMainActivity();
         }
     }
 
-    private void gotoMainActivity(){
-        Intent intent=new Intent(this,MainActivity.class);
+    private void gotoMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         this.finish();
     }
 
     private void startSlide() {
-        SlidingFragment fragment=new SlidingFragment();
+        SlidingFragment fragment = new SlidingFragment();
         fragment.setListener(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.sliding_content, fragment).commit();
 
@@ -46,7 +41,7 @@ public class SlidingActivity extends AppCompatActivity implements SlidingListene
 
     @Override
     public void slidingFinish() {
-        LotteryUtils.saveBooleanToSharePreferences(this,"isFirst",false);
+        LotteryUtils.saveBooleanToSharePreferences(this, "isFirst", false);
         gotoMainActivity();
     }
 }
