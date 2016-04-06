@@ -7,5 +7,5 @@
 
 <p>程序有很多不足的地方。正在改善中。。。</p>
 #2016/4/6
-1, 实现了Translucent System Bar
+1, 实现了Translucent System Bar</br>
 2, 优化了程序跳转和退出问题
