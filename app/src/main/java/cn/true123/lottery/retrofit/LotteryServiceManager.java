@@ -33,7 +33,11 @@ public class LotteryServiceManager {
     public static LotteryServiceManager instance;
     private OkHttpClient client;
     private LotteryService service;
+
     private Retrofit retrofit;
+    private LotteryApiService apiService;
+
+    private Retrofit apiRetrofit;
     private Context context;
     private static String TAG = "LotteryServiceManager";
 
@@ -71,8 +75,20 @@ public class LotteryServiceManager {
                 .client(client)
                 .build();
         service = retrofit.create(LotteryService.class);
+        apiRetrofit = new Retrofit.Builder()
+                .baseUrl(LotteryConstant.RETROFIT_API_VERSION_URL)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build();
+        apiService = apiRetrofit.create(LotteryApiService.class);
     }
-
+    public void getLastVersion(Subscriber subscriber,String token) {
+        apiService.getLastVersion(token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
     /**
      * The method is used to get the last data for 360 lottery
      *

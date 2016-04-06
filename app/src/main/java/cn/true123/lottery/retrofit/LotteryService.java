@@ -2,6 +2,7 @@ package cn.true123.lottery.retrofit;
 
 
 
+import cn.true123.lottery.model.ApiVersion;
 import cn.true123.lottery.model.Lottery;
 import cn.true123.lottery.model.LotteryDetail;
 import cn.true123.lottery.model.LotteryHistory;
@@ -21,4 +22,6 @@ public interface LotteryService {
     Observable<LotteryDetail> getLotteryDetail(@Query("lotId") String lotId, @Query("issue") String issue);
     @GET("qkjlist")
     Observable<LotteryHistory> geLotteryHistory(@Query("lotId") String lotId, @Query("page") String page);
+    @GET("57051b47748aac1c1a000036")
+   Observable<ApiVersion> getLastVersion(@Query("api_token") String api_token);
 }
