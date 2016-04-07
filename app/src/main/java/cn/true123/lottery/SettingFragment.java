@@ -154,7 +154,7 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
         });
 
 
-        builder.setPositiveButton("取消", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ad.dismiss();
