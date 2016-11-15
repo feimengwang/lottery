@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@mipmap/wifi"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:text="仅WIFI连网" />
+
+        <Switch
+            android:id="@+id/switch_wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:checked="false" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/grey1" />
+
+    <TextView
+        android:id="@+id/lotteryRule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="16dp"
+        android:drawableLeft="@mipmap/rule"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:text="彩票规则" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dip"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/grey1" />
+    <TextView
+        android:id="@+id/checkVersion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="16dp"
+        android:drawableLeft="@mipmap/checkupdate"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:text="检查更新" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dip"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/grey1" />
+
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="16dp"
+        android:drawableLeft="@mipmap/about"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:text="关于" />
+</LinearLayout>

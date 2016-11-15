@@ -1,58 +1,22 @@
 package cn.true123.lottery.adapter;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.support.v4.app.FragmentManager;
 
 import java.util.List;
 
-import cn.true123.lottery.R;
-import cn.true123.lottery.model.Rule;
+import cn.true123.lottery.fragment.base.BaseFragment;
 
-public class HistoryAdapter extends BaseAdapter {
-	List<String> list;
-	Context context;
+/**
+ * Created by junbo on 7/11/2016.
+ */
 
-	public HistoryAdapter(List<String> list, Context context) {
-		super();
-		this.list = list;
-		this.context = context;
-	}
+public class HistoryAdapter extends BasePagerAdapter {
+    public HistoryAdapter(FragmentManager fm, List<BaseFragment> fragmentList, Context context) {
+        super(fm, fragmentList, context);
+    }
 
-	@Override
-	public int getCount() {
-		return list.size();
-	}
-
-	@Override
-	public Object getItem(int position) {
-		return list.get(position);
-	}
-
-	@Override
-	public long getItemId(int position) {
-		return position;
-	}
-
-	@Override
-	public View getView(int position, View view, ViewGroup parent) {
-		ViewHolder vh = null;
-		if(view==null){
-			vh = new ViewHolder();
-			view = LayoutInflater.from(context).inflate(R.layout.history_item, null);
-			vh.name = (TextView) view.findViewById(R.id.text_rule);
-			view.setTag(vh);
-		}else{
-			vh = (ViewHolder) view.getTag();
-		}
-		String name = list.get(position);
-		vh.name.setText(name);
-		return view;
-	}
-	class ViewHolder{
-		TextView name;
-	}
+    public HistoryAdapter(FragmentManager fm, List<BaseFragment> fragmentList) {
+        super(fm, fragmentList);
+    }
 }

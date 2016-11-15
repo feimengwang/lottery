@@ -105,5 +105,15 @@ public class LotteryHistory {
         public void setEndTime(String EndTime) {
             this.EndTime = EndTime;
         }
+
+        @Override
+        public String toString() {
+            return "ListEntity{" +
+                    "Issue='" + Issue + '\'' +
+                    ", WinNumber='" + WinNumber + '\'' +
+                    ", BallNumber='" + BallNumber + '\'' +
+                    ", EndTime='" + EndTime + '\'' +
+                    '}';
+        }
     }
 }

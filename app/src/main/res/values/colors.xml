@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="button_blue">#1296db</color>
     <color name="yellow">#77ffff00</color>
     <color name="yellow2">#fffbf9d2</color>
     <color name="yellow3">#fffff8da</color>
@@ -226,9 +230,7 @@
     <color name="recharge_success_text">#ff464646</color>
     <color name="recharge_success_btn">#ff454542</color>
     <color name="ump_translucent_background">#80000000</color>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+
     <color name="color_31c27c">#31c27c</color>
     <color name="color_0176da">#0176da</color>
     <color name="color_005eaa">#005eaa</color>

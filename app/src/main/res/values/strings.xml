@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">My Application</string>
+    <string name="action_settings">Settings</string>
+    <string name="last_lottery">最新开奖</string>
+
     <string name="SSQ">双色球</string>
     <string name="DLT">大乐透</string>
     <string name="FC3D">福彩3D</string>
@@ -37,7 +40,7 @@
     <string name="kj_detail">开奖详情</string>
     <string name="kj_last">最新开奖</string>
     <string name="hello">Hello World, CaipiaoActivity!</string>
-    <string name="app_name">陶陶彩票</string>
+
     <string name="setting">系统设置</string>
     <string name="rule">开奖规则</string>
     <string name="history">历史开奖</string>
@@ -79,4 +82,13 @@
     <string name="lottery_sale">本期销售%1$s元</string>
     <string name="lottery_time">开奖日期%1$s</string>
     <string name="lottery_history_title">%1$s历史开奖</string>
+    <string name="title_activity_lottery_detail">LotteryDetailActivity</string>
+    <string name="lottery_history">开奖历史</string>
+    <string name="news_bottom">新闻</string>
+    <string name="lottery_bottom">开奖</string>
+    <string name="history_bottom">历史</string>
+    <string name="me_bottom">设置</string>
+    <string name="about_titile">关于</string>
+    <string name="lottery_detail_title">开奖详情</string>
+    <string name="news_title">资讯详情</string>
 </resources>

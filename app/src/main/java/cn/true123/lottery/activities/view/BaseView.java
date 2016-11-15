@@ -1,0 +1,11 @@
+package cn.true123.lottery.activities.view;
+
+/**
+ * Created by junbo on 3/11/2016.
+ */
+
+public interface BaseView<T> {
+    void update(T data);
+    void showDialog();
+    void dismissDialog();
+}

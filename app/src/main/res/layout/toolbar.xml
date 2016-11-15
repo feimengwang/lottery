@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<cn.true123.lottery.view.LotteryToolbar xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/toolbar"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="@color/blue2"
-    app:layout_scrollFlags=""
-    app:popupTheme="@style/Toobar" />

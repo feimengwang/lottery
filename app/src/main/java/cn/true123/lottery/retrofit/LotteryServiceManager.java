@@ -1,19 +1,17 @@
 package cn.true123.lottery.retrofit;
 
-import android.app.Activity;
-import android.content.Context;
 import android.util.Log;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import cn.true123.lottery.application.LotteryApplication;
-import cn.true123.lottery.model.LotteryConstant;
+import cn.true123.lottery.App;
 import cn.true123.lottery.model.Lottery;
+import cn.true123.lottery.utils.CacheUtils;
+import cn.true123.lottery.utils.Constants;
 import cn.true123.lottery.utils.LotteryUtils;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
@@ -30,7 +28,7 @@ import rx.schedulers.Schedulers;
  * Created by feimeng0530 on 2016/3/17.
  */
 public class LotteryServiceManager {
-    public static LotteryServiceManager instance;
+    public static volatile LotteryServiceManager instance;
     private OkHttpClient client;
     private LotteryService service;
 
@@ -38,24 +36,19 @@ public class LotteryServiceManager {
     private LotteryApiService apiService;
 
     private Retrofit apiRetrofit;
-    private Context context;
     private static String TAG = "LotteryServiceManager";
 
-    private LotteryServiceManager(Context context) {
-        this.context = context;
+
+    public LotteryServiceManager() {
         init();
     }
 
-    /**
-     * return singleton LotteryServiceManager instance
-     *
-     * @return instance
-     */
-    public static LotteryServiceManager instance(Context context) {
+
+    public static LotteryServiceManager getInstance() {
         if (instance == null) {
             synchronized (LotteryServiceManager.class) {
                 if (instance == null) {
-                    instance = new LotteryServiceManager(context);
+                    instance = new LotteryServiceManager();
                 }
             }
         }
@@ -66,29 +59,43 @@ public class LotteryServiceManager {
      * initialize the OKHttpClient and retrofit
      */
     private void init() {
-        client = new OkHttpClient.Builder().connectTimeout(3000, TimeUnit.MILLISECONDS).cache(new Cache(context.getExternalCacheDir(), ((LotteryApplication) ((Activity) context).getApplication()).getCacheSize())).build();
+        client = new OkHttpClient.Builder()
+                .connectTimeout(3000, TimeUnit.MILLISECONDS)
+                .readTimeout(3000, TimeUnit.MILLISECONDS)
+
+                .cache(new Cache(CacheUtils.getDir(App.getAppContext()), CacheUtils.getCacheSize()))
+                .build();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(LotteryConstant.RETROFIT_BASE_URL)
+                .baseUrl(Constants.RETROFIT_BASE_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
         service = retrofit.create(LotteryService.class);
         apiRetrofit = new Retrofit.Builder()
-                .baseUrl(LotteryConstant.RETROFIT_API_VERSION_URL)
+                .baseUrl(Constants.RETROFIT_API_VERSION_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
         apiService = apiRetrofit.create(LotteryApiService.class);
     }
-    public void getLastVersion(Subscriber subscriber,String token) {
+
+    @Deprecated
+    public void getLastVersion(Subscriber subscriber, String token) {
         apiService.getLastVersion(token)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
     }
+
+    public Observable getLastVersion(String token) {
+        return apiService.getLastVersion(token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
     /**
      * The method is used to get the last data for 360 lottery
      *
@@ -154,7 +161,7 @@ public class LotteryServiceManager {
     }
 
     public static void main(String[] args) {
-        instance(null).getLastData360(new Subscriber<Lottery>() {
+        getInstance().getLastData360(new Subscriber<Lottery>() {
             @Override
             public void onCompleted() {
                 System.out.println("onCompleted");

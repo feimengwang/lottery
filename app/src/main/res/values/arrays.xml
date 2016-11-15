@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="sx">
-        <item>@string/sx1</item>
-        <item>@string/sx2</item>
-        <item>@string/sx3</item>
-        <item>@string/sx4</item>
-        <item>@string/sx5</item>
-        <item>@string/sx6</item>
-        <item>@string/sx7</item>
-        <item>@string/sx8</item>
-        <item>@string/sx9</item>
-        <item>@string/sx10</item>
-        <item>@string/sx11</item>
-        <item>@string/sx12</item>
-    </string-array>
 
     <array name="rule">
         <item>@raw/s14sf</item>

@@ -1,22 +1,16 @@
 package cn.true123.lottery.utils;
 
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
-import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
-import android.net.Network;
 import android.net.NetworkInfo;
-import android.os.Build;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.util.StringBuilderPrinter;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +20,6 @@ import java.util.Map;
 import cn.true123.lottery.R;
 import cn.true123.lottery.model.Ball;
 import cn.true123.lottery.model.HistoryItem;
-import cn.true123.lottery.model.Item;
 import cn.true123.lottery.model.Lottery;
 import cn.true123.lottery.model.LotteryHistory;
 
@@ -182,24 +175,24 @@ public class LotteryUtils {
         return dialog;
     }
 
-    public static AlertDialog showDialog(Context context, String title) {
-        View progressBar = LayoutInflater.from(context).inflate(
-                R.layout.progress_bar_layout, null);
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(title);
-        builder.setView(progressBar);
-        AlertDialog dialog = builder.show();
-        return dialog;
-    }
-
-    public static AlertDialog showDialog(Context context) {
-        View progressBar = LayoutInflater.from(context).inflate(
-                R.layout.progress_bar_layout, null);
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setView(progressBar);
-        AlertDialog dialog = builder.show();
-        return dialog;
-    }
+//    public static AlertDialog showDialog(Context context, String title) {
+//        View progressBar = LayoutInflater.from(context).inflate(
+//                R.layout.progress_bar_layout, null);
+//        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//        builder.setTitle(title);
+//        builder.setView(progressBar);
+//        AlertDialog dialog = builder.show();
+//        return dialog;
+//    }
+//
+//    public static AlertDialog showDialog(Context context) {
+//        View progressBar = LayoutInflater.from(context).inflate(
+//                R.layout.progress_bar_layout, null);
+//        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//        builder.setView(progressBar);
+//        AlertDialog dialog = builder.show();
+//        return dialog;
+//    }
 
     public static void dismissDialog(AlertDialog dialog) {
         if (dialog != null) {
@@ -296,6 +289,7 @@ public class LotteryUtils {
     public static HistoryItem convertHistoryItem(String lotId, LotteryHistory.ListEntity entity) {
 
         HistoryItem item = null;
+        if (lotId==null)return item;
         switch (lotId) {
             case "166406":
                 item = new HistoryItem(lotId, entity.getEndTime(), entity.getIssue(), entity.getWinNumber(), "");
@@ -407,4 +401,6 @@ public class LotteryUtils {
 
         return checkIfShouldUseNetwork(context, getDefaultBoolean(context, "wifi"), getDefaultBoolean(context, "mobile"));
     }
+
+
 }

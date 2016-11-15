@@ -60,4 +60,15 @@ public class HistoryItem {
     public void setBlue(String blue) {
         this.blue = blue;
     }
+
+    @Override
+    public String toString() {
+        return "HistoryItem{" +
+                "lotId='" + lotId + '\'' +
+                ", time='" + time + '\'' +
+                ", issue='" + issue + '\'' +
+                ", red='" + red + '\'' +
+                ", blue='" + blue + '\'' +
+                '}';
+    }
 }
