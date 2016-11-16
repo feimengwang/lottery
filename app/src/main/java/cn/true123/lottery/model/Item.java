@@ -3,7 +3,7 @@ package cn.true123.lottery.model;
 /**
  * Created by feimeng0530 on 2016/3/24.
  */
-public class Item {
+public class Item implements ILottery{
     private String lotName;
     private String lotId;
     private String flg;

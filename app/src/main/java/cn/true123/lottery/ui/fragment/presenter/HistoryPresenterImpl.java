@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import cn.true123.lottery.ui.base.presenter.BasePresenterImpl;
 import cn.true123.lottery.ui.fragment.view.HistoryView;
 import cn.true123.lottery.model.LotteryItem;
 import cn.true123.lottery.utils.LotteryUtils;

@@ -4,6 +4,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 import cn.true123.lottery.App;
+import cn.true123.lottery.ui.base.presenter.BasePresenterImpl;
 import cn.true123.lottery.ui.fragment.view.MeView;
 import cn.true123.lottery.model.ApiVersion;
 import cn.true123.lottery.data.LotteryServiceManager;

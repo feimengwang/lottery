@@ -1,6 +1,6 @@
 package cn.true123.lottery.model;
 
-public class KJRect {
+public class KJRect implements ILottery{
 	private float widht;
 	private float height;
 	public float getWidht() {

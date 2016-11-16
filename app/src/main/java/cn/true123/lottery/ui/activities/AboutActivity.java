@@ -6,6 +6,7 @@ import android.webkit.WebView;
 
 import butterknife.BindView;
 import cn.true123.lottery.R;
+import cn.true123.lottery.model.ILottery;
 import cn.true123.lottery.ui.activities.presenter.AboutPresenter;
 import cn.true123.lottery.ui.activities.presenter.AboutPresenterImpl;
 import cn.true123.lottery.ui.activities.view.AboutView;
@@ -14,10 +15,9 @@ import cn.true123.lottery.ui.activities.view.AboutView;
  * Created by junbo on 13/11/2016.
  */
 
-public class AboutActivity extends BaseActivity implements AboutView<String> {
+public class AboutActivity extends BaseActivity implements AboutView {
     @BindView(R.id.webView)
     WebView webView;
-    AboutPresenter presenter;
 
     @Override
     protected void initIntent() {

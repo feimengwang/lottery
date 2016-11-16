@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by junbo on 29/9/2016.
  */
-public class News {
+public class News implements ILottery{
 
 
     private String postid;

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by feimeng0530 on 2016/3/17.
  */
-public class Lottery {
+public class Lottery implements ILottery{
 
     public List getAllEntities(){
         List ret = new ArrayList();

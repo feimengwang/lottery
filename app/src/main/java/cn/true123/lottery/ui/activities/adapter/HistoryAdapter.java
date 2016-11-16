@@ -1,10 +1,11 @@
-package cn.true123.lottery.adapter;
+package cn.true123.lottery.ui.activities.adapter;
 
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 
 import java.util.List;
 
+import cn.true123.lottery.ui.base.adapter.BasePagerAdapter;
 import cn.true123.lottery.ui.fragment.base.BaseFragment;
 
 /**

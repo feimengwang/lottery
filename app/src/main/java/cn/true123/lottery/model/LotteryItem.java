@@ -4,7 +4,7 @@ package cn.true123.lottery.model;
  * Created by junbo on 7/11/2016.
  */
 
-public class LotteryItem {
+public class LotteryItem implements ILottery{
     private String id;
     private String name;
     private boolean isValid;

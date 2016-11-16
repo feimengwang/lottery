@@ -1,4 +1,4 @@
-package cn.true123.lottery.adapter;
+package cn.true123.lottery.ui.base.adapter;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;

@@ -6,8 +6,8 @@ import android.widget.FrameLayout;
 
 import butterknife.BindView;
 import cn.true123.lottery.R;
-import cn.true123.lottery.ui.fragment.NavFragment;
 import cn.true123.lottery.listener.OnTagChangedListener;
+import cn.true123.lottery.ui.fragment.NavFragment;
 
 public class MainActivity extends BaseActivity implements OnTagChangedListener {
     //    @BindView(R.id.viewPager)
@@ -42,22 +42,6 @@ public class MainActivity extends BaseActivity implements OnTagChangedListener {
         fragment.setOnTagChangedListener(this);
         fragment.setUp(this, getSupportFragmentManager(), R.id.content);
 
-//        MainFragment t1 = MainFragment.getInstance();
-//        HistoryFragment t2 = HistoryFragment.getInstance();
-//        MainFragment t3 = MainFragment.getInstance();
-//        MainFragment t4 = MainFragment.getInstance();
-//
-//        fragmentList = new ArrayList<>();
-//        fragmentList.add(t1);
-//        fragmentList.add(t2);
-//        fragmentList.add(t3);
-//        fragmentList.add(t4);
-//        adapter = new MainAdapter(getSupportFragmentManager(), fragmentList, this);
-//        viewPager.setOffscreenPageLimit(4);
-//        viewPager.setAdapter(adapter);
-//
-//        tabLayout.setSelectedTabIndicatorHeight(0);
-//        tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override

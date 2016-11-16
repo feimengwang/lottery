@@ -1,13 +1,13 @@
-package cn.true123.lottery.ui.activities.presenter;
+package cn.true123.lottery.ui.base.presenter;
 
-import cn.true123.lottery.ui.activities.view.BaseView;
+import cn.true123.lottery.ui.base.view.BaseView;
 
 /**
- * Created by junbo on 3/11/2016.
+ * Created by junbo on 16/11/2016.
  */
 
 public class BasePresenterImpl<T extends BaseView> implements BasePresenter<T> {
-    T view;
+    public T view;
 
     @Override
     public void attach(T view) {
@@ -17,5 +17,10 @@ public class BasePresenterImpl<T extends BaseView> implements BasePresenter<T> {
     @Override
     public void start() {
 
+    }
+
+    @Override
+    public void destory() {
+        view=null;
     }
 }

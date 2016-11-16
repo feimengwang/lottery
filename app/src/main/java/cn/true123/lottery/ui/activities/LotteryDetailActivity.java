@@ -11,6 +11,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import cn.true123.lottery.R;
+import cn.true123.lottery.model.ILottery;
 import cn.true123.lottery.ui.activities.presenter.LotteryDetailPresenter;
 import cn.true123.lottery.ui.activities.presenter.LotteryDetailPresenterImpl;
 import cn.true123.lottery.ui.activities.view.ILotteryDetailView;
@@ -21,7 +22,7 @@ import cn.true123.lottery.widget.KJLineItemView;
 import cn.true123.lottery.widget.LotteryDetailView;
 
 
-public class LotteryDetailActivity extends BaseActivity implements ILotteryDetailView<LotteryDetail> {
+public class LotteryDetailActivity extends BaseActivity<LotteryDetail,LotteryDetailPresenter> implements ILotteryDetailView {
 
     String lotId;
     String issue;
@@ -88,7 +89,10 @@ public class LotteryDetailActivity extends BaseActivity implements ILotteryDetai
     }
 
     @Override
-    public void update(final LotteryDetail lotteryDetail) {
+    public void update(List<LotteryDetail> list) {
+        if(list==null || list.size()==0)
+            return;
+        final LotteryDetail lotteryDetail = list.get(0);
 
         tName.setText(lotteryDetail.getLotName());
         tPhase.setText(getResString(R.string.lottery_issue, lotteryDetail.getIssue()));

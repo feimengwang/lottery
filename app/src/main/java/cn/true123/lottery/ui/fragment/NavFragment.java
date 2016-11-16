@@ -11,8 +11,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.true123.lottery.R;
+import cn.true123.lottery.ui.base.presenter.BasePresenter;
 import cn.true123.lottery.ui.fragment.base.BaseFragment;
-import cn.true123.lottery.ui.fragment.presenter.BasePresenter;
 import cn.true123.lottery.listener.OnTagChangedListener;
 import cn.true123.lottery.widget.NavButton;
 
@@ -127,8 +127,5 @@ public class NavFragment extends BaseFragment {
         return null;
     }
 
-    @Override
-    public void fail(String message) {
 
-    }
 }

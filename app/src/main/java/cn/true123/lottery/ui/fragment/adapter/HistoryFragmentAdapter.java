@@ -12,6 +12,7 @@ import butterknife.ButterKnife;
 import cn.true123.lottery.R;
 import cn.true123.lottery.model.HistoryItem;
 import cn.true123.lottery.model.LotteryHistory;
+import cn.true123.lottery.ui.base.adapter.BaseRecyclerAdapter;
 import cn.true123.lottery.utils.LotteryUtils;
 import mlog.true123.cn.lib.MLog;
 
@@ -32,7 +33,7 @@ public class HistoryFragmentAdapter extends BaseRecyclerAdapter<LotteryHistory.L
     }
 
     @Override
-    protected HistoryFragmentViewHolder createVH(View v, int viewType) {
+    public HistoryFragmentViewHolder createVH(View v, int viewType) {
         if (viewType == FOOTER_TYPE) {
             return new HistoryFragmentFooterViewHolder(v);
         }
@@ -40,7 +41,7 @@ public class HistoryFragmentAdapter extends BaseRecyclerAdapter<LotteryHistory.L
     }
 
     @Override
-    protected int getLayoutResId() {
+    public int getLayoutResId() {
         return R.layout.history_detail_item;
     }
 

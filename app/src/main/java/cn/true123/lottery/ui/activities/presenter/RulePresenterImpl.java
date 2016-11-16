@@ -14,6 +14,7 @@ import java.util.List;
 import cn.true123.lottery.R;
 import cn.true123.lottery.ui.activities.view.RuleView;
 import cn.true123.lottery.model.Rule;
+import cn.true123.lottery.ui.base.presenter.BasePresenterImpl;
 import mlog.true123.cn.lib.MLog;
 import rx.Observable;
 import rx.Subscriber;

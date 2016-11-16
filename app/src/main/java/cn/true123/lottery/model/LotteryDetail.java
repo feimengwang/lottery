@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by feimeng0530 on 2016/3/18.
  */
-public class LotteryDetail {
+public class LotteryDetail implements ILottery{
 
     /**
      * lotId : 220051

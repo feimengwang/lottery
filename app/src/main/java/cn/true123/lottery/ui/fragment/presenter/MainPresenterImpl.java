@@ -2,6 +2,7 @@ package cn.true123.lottery.ui.fragment.presenter;
 
 import java.util.List;
 
+import cn.true123.lottery.ui.base.presenter.BasePresenterImpl;
 import cn.true123.lottery.ui.fragment.view.MainView;
 import cn.true123.lottery.model.Lottery;
 import cn.true123.lottery.data.LotteryServiceManager;

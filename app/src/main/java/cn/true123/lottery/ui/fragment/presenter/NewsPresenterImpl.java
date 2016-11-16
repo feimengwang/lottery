@@ -3,6 +3,7 @@ package cn.true123.lottery.ui.fragment.presenter;
 import java.util.List;
 import java.util.Map;
 
+import cn.true123.lottery.ui.base.presenter.BasePresenterImpl;
 import cn.true123.lottery.ui.fragment.view.NewsView;
 import cn.true123.lottery.model.News;
 import cn.true123.lottery.data.NewsServiceManager;

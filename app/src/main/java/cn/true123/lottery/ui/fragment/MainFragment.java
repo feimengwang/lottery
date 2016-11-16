@@ -80,16 +80,18 @@ public class MainFragment extends BaseFragment<MainPresenter> implements MainVie
     }
 
     @Override
+    public void showDialog() {
+
+    }
+
+    @Override
     public void update(List list) {
         data.clear();
         data.addAll(list);
         adapter.notifyDataSetChanged();
     }
 
-    @Override
-    public void fail(String message) {
 
-    }
 
     @Override
     public void onItemClick(View view, long position) {
@@ -111,5 +113,15 @@ public class MainFragment extends BaseFragment<MainPresenter> implements MainVie
         intent.putExtras(b);
         getActivity().startActivity(intent);
         getActivity().overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+    }
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void dismissProgress() {
+
     }
 }

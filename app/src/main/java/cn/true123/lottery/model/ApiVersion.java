@@ -3,7 +3,7 @@ package cn.true123.lottery.model;
 /**
  * Created by junbo on 2016/4/6.
  */
-public class ApiVersion {
+public class ApiVersion implements ILottery{
     /**
      * name : fir.im
      * version : 1.0

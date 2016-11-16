@@ -12,6 +12,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.true123.lottery.R;
 import cn.true123.lottery.model.Lottery;
+import cn.true123.lottery.ui.base.adapter.BaseRecyclerAdapter;
 import cn.true123.lottery.utils.LotteryUtils;
 import cn.true123.lottery.widget.KJLineItemView;
 
@@ -28,13 +29,13 @@ public class MainFragmentAdapter extends BaseRecyclerAdapter<Lottery.IEntity, Ma
 
 
     @Override
-    protected MainFragmentViewHolder createVH(View v,int viewType) {
+    public MainFragmentViewHolder createVH(View v,int viewType) {
 
         return new MainFragmentViewHolder(v);
     }
 
     @Override
-    protected int getLayoutResId() {
+    public int getLayoutResId() {
         return R.layout.last_num_item;
     }
 

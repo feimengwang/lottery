@@ -14,6 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.true123.lottery.R;
 import cn.true123.lottery.model.News;
+import cn.true123.lottery.ui.base.adapter.BaseRecyclerAdapter;
 
 /**
  * Created by junbo on 2/11/2016.
@@ -28,7 +29,7 @@ public class NewsFragmentAdapter extends BaseRecyclerAdapter<News, NewsFragmentA
 
 
     @Override
-    protected NewsFragmentViewHolder createVH(View v, int viewType) {
+    public NewsFragmentViewHolder createVH(View v, int viewType) {
         if (FOOTER_TYPE == viewType) {
             return new NewsFragmentFooterViewHolder(v);
         } else {
@@ -42,7 +43,7 @@ public class NewsFragmentAdapter extends BaseRecyclerAdapter<News, NewsFragmentA
     }
 
     @Override
-    protected int getLayoutResId() {
+    public int getLayoutResId() {
         return R.layout.news_item;
     }
 

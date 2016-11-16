@@ -11,18 +11,18 @@ import java.util.List;
 
 import butterknife.BindView;
 import cn.true123.lottery.R;
+import cn.true123.lottery.model.Rule;
 import cn.true123.lottery.ui.activities.adapter.RuleAdapter;
 import cn.true123.lottery.ui.activities.presenter.RulePresenter;
 import cn.true123.lottery.ui.activities.presenter.RulePresenterImpl;
 import cn.true123.lottery.ui.activities.view.RuleView;
-import cn.true123.lottery.model.Rule;
 import mlog.true123.cn.lib.MLog;
 
 /**
  * Created by junbo on 15/11/2016.
  */
 
-public class RuleActivity extends BaseActivity implements RuleView<List> {
+public class RuleActivity extends BaseActivity<Rule, RulePresenter> implements RuleView {
     @BindView(R.id.listView)
     ListView listView;
     RuleAdapter adapter;

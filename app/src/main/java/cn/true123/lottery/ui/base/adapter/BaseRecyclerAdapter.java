@@ -1,4 +1,4 @@
-package cn.true123.lottery.ui.fragment.adapter;
+package cn.true123.lottery.ui.base.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -18,14 +18,14 @@ import mlog.true123.cn.lib.MLog;
  */
 
 public abstract class BaseRecyclerAdapter<M, VH extends BaseRecyclerAdapter.BaseViewHoler> extends RecyclerView.Adapter<VH> {
-    List<M> list;
-    Context context;
-    protected int FOOTER_TYPE = 1;
-    protected int COMMON_TYPE = 2;
+    public List<M> list;
+    public Context context;
+    public int FOOTER_TYPE = 1;
+    public int COMMON_TYPE = 2;
 
-    protected boolean hasFooter = false;
-    protected boolean isEnd = false;
-    protected boolean isFlushing = false;
+    public boolean hasFooter = false;
+    public boolean isEnd = false;
+    public boolean isFlushing = false;
 
     public void setFlushing(boolean isFlushing) {
         this.isFlushing = isFlushing;
@@ -65,7 +65,7 @@ public abstract class BaseRecyclerAdapter<M, VH extends BaseRecyclerAdapter.Base
         return R.layout.adapter_footer;
     }
 
-    protected VH createVH(ViewGroup parent, final int viewType) {
+    public VH createVH(ViewGroup parent, final int viewType) {
         View v;
         if (FOOTER_TYPE == viewType) {
             v = LayoutInflater.from(context).inflate(getFooterLayoutResId(), parent, false);
@@ -90,9 +90,9 @@ public abstract class BaseRecyclerAdapter<M, VH extends BaseRecyclerAdapter.Base
         return vh;
     }
 
-    protected abstract VH createVH(View v, int ViewType);
+    public abstract VH createVH(View v, int ViewType);
 
-    protected abstract int getLayoutResId();
+    public abstract int getLayoutResId();
 
     @Override
     public int getItemViewType(int position) {
@@ -127,7 +127,7 @@ public abstract class BaseRecyclerAdapter<M, VH extends BaseRecyclerAdapter.Base
         return list.size();
     }
 
-    class BaseViewHoler extends RecyclerView.ViewHolder {
+    public class BaseViewHoler extends RecyclerView.ViewHolder {
 
         public BaseViewHoler(View itemView) {
             super(itemView);

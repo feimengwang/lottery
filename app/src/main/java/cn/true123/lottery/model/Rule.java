@@ -1,6 +1,6 @@
 package cn.true123.lottery.model;
 
-public class Rule {
+public class Rule implements ILottery{
 	private String name;
 	private String content;
 

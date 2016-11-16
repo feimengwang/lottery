@@ -1,10 +1,12 @@
 package cn.true123.lottery.ui.fragment.presenter;
 
+import cn.true123.lottery.ui.base.presenter.BasePresenterImpl;
 import cn.true123.lottery.ui.fragment.view.ConcreteLotteryView;
 import cn.true123.lottery.model.LotteryHistory;
 import cn.true123.lottery.data.LotteryServiceManager;
 import mlog.true123.cn.lib.MLog;
 import rx.Subscriber;
+
 
 /**
  * Created by junbo on 7/11/2016.

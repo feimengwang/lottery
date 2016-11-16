@@ -14,10 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.util.List;
+
 import butterknife.ButterKnife;
 import cn.true123.lottery.action.IAction;
-import cn.true123.lottery.ui.fragment.presenter.BasePresenter;
-import cn.true123.lottery.ui.fragment.view.BaseView;
+import cn.true123.lottery.ui.base.presenter.BasePresenter;
+import cn.true123.lottery.ui.base.view.BaseView;
 
 /**
  * Created by junbo on 1/11/2016.
@@ -68,17 +70,13 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     public abstract String getTitle();
 
     @Override
-    public void dismissProgress() {
-        if (swipeRefreshLayout != null && swipeRefreshLayout.isRefreshing()) {
-            swipeRefreshLayout.setRefreshing(false);
-        }
+    public void update(List list) {
+
     }
 
     @Override
-    public void showProgress() {
-        if (swipeRefreshLayout != null && !swipeRefreshLayout.isRefreshing()) {
-            swipeRefreshLayout.setRefreshing(true);
-        }
+    public void showDialog() {
+
     }
 
     @Override
@@ -164,12 +162,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
         Log.i("DDD", "onViewStateRestored");
     }
 
-    @Override
-    public void fail(String message) {
 
-    }
-
-    @Override
     public void showDialog(String title, String message, final IAction okAction, final IAction noAction) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(title);

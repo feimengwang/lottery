@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.true123.lottery.R;
@@ -77,10 +79,7 @@ public class MeFragment extends BaseFragment<MePresenter> implements MeView {
         return "设置";
     }
 
-    @Override
-    public void fail(String message) {
 
-    }
 
     private void showDialog(final String url) {
         showDialog("检查新版本", "检查到新版本，是否更新？", new IAction() {
@@ -107,5 +106,15 @@ public class MeFragment extends BaseFragment<MePresenter> implements MeView {
         } else {
             showDialog(url);
         }
+    }
+
+    @Override
+    public void showDialog() {
+
+    }
+
+    @Override
+    public void update(List list) {
+
     }
 }

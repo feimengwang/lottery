@@ -1,6 +1,6 @@
 package cn.true123.lottery.model;
 
-public class Ball {
+public class Ball implements ILottery{
 	private boolean red = false;
 	private boolean blue = false;
 	private String num;

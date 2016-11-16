@@ -110,10 +110,7 @@ public class ConcreteLotteryHistoryFragment extends BaseFragment<ConcreteLottery
         return name;
     }
 
-    @Override
-    public void fail(String message) {
 
-    }
 
     @Override
     public void onItemClick(View view, long position) {
@@ -153,5 +150,15 @@ public class ConcreteLotteryHistoryFragment extends BaseFragment<ConcreteLottery
             data.addAll(list);
         }
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showDialog() {
+
+    }
+
+    @Override
+    public void update(List list) {
+
     }
 }

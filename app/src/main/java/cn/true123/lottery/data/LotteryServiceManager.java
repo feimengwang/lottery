@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import cn.true123.lottery.App;
 import cn.true123.lottery.model.Lottery;
+import cn.true123.lottery.model.LotteryDetail;
 import cn.true123.lottery.utils.CacheUtils;
 import cn.true123.lottery.utils.Constants;
 import cn.true123.lottery.utils.LotteryUtils;
@@ -133,6 +134,12 @@ public class LotteryServiceManager {
         return ret;
     }
 
+    public Observable<LotteryDetail> getLotteryDetail(String lotId, String issue) {
+
+        return service.getLotteryDetail(lotId, issue)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
     /**
      * Get the detail for one issue of lottery
      *

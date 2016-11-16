@@ -2,7 +2,6 @@ package cn.true123.lottery.ui.fragment;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.view.View;
 import android.widget.ProgressBar;
 
 import java.util.ArrayList;
@@ -12,18 +11,18 @@ import java.util.List;
 import butterknife.BindView;
 import cn.true123.lottery.App;
 import cn.true123.lottery.R;
-import cn.true123.lottery.adapter.HistoryAdapter;
+import cn.true123.lottery.model.LotteryItem;
+import cn.true123.lottery.ui.activities.adapter.HistoryAdapter;
 import cn.true123.lottery.ui.fragment.base.BaseFragment;
-import cn.true123.lottery.ui.fragment.presenter.BasePresenter;
+import cn.true123.lottery.ui.fragment.presenter.HistoryPresenter;
 import cn.true123.lottery.ui.fragment.presenter.HistoryPresenterImpl;
 import cn.true123.lottery.ui.fragment.view.HistoryView;
-import cn.true123.lottery.model.LotteryItem;
 
 /**
  * Created by junbo on 4/11/2016.
  */
 
-public class HistoryFragment extends BaseFragment implements HistoryView<LotteryItem> {
+public class HistoryFragment extends BaseFragment<HistoryPresenter> implements HistoryView {
     @BindView(R.id.viewPager)
     ViewPager viewPager;
     @BindView(R.id.tabLayout)
@@ -48,7 +47,7 @@ public class HistoryFragment extends BaseFragment implements HistoryView<Lottery
     }
 
     @Override
-    protected BasePresenter getPresenter() {
+    protected HistoryPresenter getPresenter() {
         presenter = new HistoryPresenterImpl();
         return presenter;
     }
@@ -65,22 +64,13 @@ public class HistoryFragment extends BaseFragment implements HistoryView<Lottery
 
 
     @Override
-    public void fail(String message) {
+    public void showDialog() {
 
     }
 
-    @Override
-    public void dismissProgress() {
-        progressBar.setVisibility(View.GONE);
-    }
 
     @Override
-    public void showProgress() {
-        progressBar.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void update(List<LotteryItem> data) {
+    public void update(List data) {
         if (data != null && data.size() > 0) {
             Iterator<LotteryItem> it = data.iterator();
             while (it.hasNext()) {
@@ -90,4 +80,6 @@ public class HistoryFragment extends BaseFragment implements HistoryView<Lottery
         }
         adapter.notifyDataSetChanged();
     }
+
+
 }

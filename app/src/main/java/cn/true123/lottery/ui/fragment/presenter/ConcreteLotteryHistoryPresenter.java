@@ -1,5 +1,6 @@
 package cn.true123.lottery.ui.fragment.presenter;
 
+import cn.true123.lottery.ui.base.presenter.BasePresenter;
 import cn.true123.lottery.ui.fragment.view.ConcreteLotteryView;
 
 /**
