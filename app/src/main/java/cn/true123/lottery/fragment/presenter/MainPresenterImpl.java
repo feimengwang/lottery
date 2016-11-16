@@ -2,10 +2,9 @@ package cn.true123.lottery.fragment.presenter;
 
 import java.util.List;
 
-import cn.true123.lottery.fragment.view.BaseView;
 import cn.true123.lottery.fragment.view.MainView;
 import cn.true123.lottery.model.Lottery;
-import cn.true123.lottery.retrofit.LotteryServiceManager;
+import cn.true123.lottery.data.LotteryServiceManager;
 import rx.Subscriber;
 
 /**

@@ -2,7 +2,7 @@ package cn.true123.lottery.activities.presenter;
 
 import cn.true123.lottery.activities.view.ILotteryDetailView;
 import cn.true123.lottery.model.LotteryDetail;
-import cn.true123.lottery.retrofit.LotteryServiceManager;
+import cn.true123.lottery.data.LotteryServiceManager;
 import mlog.true123.cn.lib.MLog;
 import rx.Subscriber;
 

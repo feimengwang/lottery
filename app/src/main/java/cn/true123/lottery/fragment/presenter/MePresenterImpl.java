@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import cn.true123.lottery.App;
 import cn.true123.lottery.fragment.view.MeView;
 import cn.true123.lottery.model.ApiVersion;
-import cn.true123.lottery.retrofit.LotteryServiceManager;
+import cn.true123.lottery.data.LotteryServiceManager;
 import cn.true123.lottery.utils.Constants;
 import rx.Subscriber;
 import rx.functions.Func1;

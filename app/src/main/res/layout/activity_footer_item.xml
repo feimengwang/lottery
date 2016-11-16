@@ -17,5 +17,5 @@
         android:id="@android:id/text1"
         android:textAppearance="@style/TextAppearance.Design.Tab"
         android:layout_height="wrap_content"
-        android:text="@string/CQKL10" />
+        android:text="" />
 </LinearLayout>

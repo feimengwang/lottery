@@ -5,7 +5,7 @@ import java.util.Map;
 
 import cn.true123.lottery.fragment.view.NewsView;
 import cn.true123.lottery.model.News;
-import cn.true123.lottery.retrofit.NewsServiceManager;
+import cn.true123.lottery.data.NewsServiceManager;
 import cn.true123.lottery.utils.Constants;
 import mlog.true123.cn.lib.MLog;
 import rx.Subscriber;

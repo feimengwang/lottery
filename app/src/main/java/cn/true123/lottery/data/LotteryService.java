@@ -1,4 +1,4 @@
-package cn.true123.lottery.retrofit;
+package cn.true123.lottery.data;
 
 
 import cn.true123.lottery.model.ApiVersion;
