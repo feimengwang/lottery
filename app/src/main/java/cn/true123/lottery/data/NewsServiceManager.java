@@ -39,7 +39,6 @@ public class NewsServiceManager {
 
 
     public NewsServiceManager() {
-        // MLog.i("MyAPP.getAppContext().getCacheDir()"+MyAPP.getAppContext().getCacheDir());
         client = new OkHttpClient.Builder()
                 .connectTimeout(2, TimeUnit.SECONDS)
                 .readTimeout(2, TimeUnit.SECONDS)
@@ -48,23 +47,10 @@ public class NewsServiceManager {
                     @Override
                     public Response intercept(Chain chain) throws IOException {
                         Request request = chain.request();
-                        MLog.i("request=" + request.toString() + ";" + NetUtil.isNetAvailable());
                         if (!NetUtil.isNetAvailable()) {
                             request = request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build();
                         }
-                        MLog.i("test1");
                         Response response = chain.proceed(request);
-
-                        //ResponseBody responseBody = response.body();
-                       // String responseBodyString = responseBody.string();
-                        // now we have extracted the response body but in the process
-                        // we have consumed the original reponse and can't read it again
-                        // so we need to build a new one to return from this method
-
-//                        Response newResponse = response.newBuilder().body(ResponseBody.create(responseBody.contentType(), responseBodyString.getBytes())).build();
-//
-//
-//                        return newResponse;
 
                         if (NetUtil.isNetAvailable()) {
                             return response.newBuilder()

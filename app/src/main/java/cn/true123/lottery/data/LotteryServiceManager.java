@@ -2,6 +2,7 @@ package cn.true123.lottery.data;
 
 import android.util.Log;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -14,8 +15,13 @@ import cn.true123.lottery.model.LotteryDetail;
 import cn.true123.lottery.utils.CacheUtils;
 import cn.true123.lottery.utils.Constants;
 import cn.true123.lottery.utils.LotteryUtils;
+import cn.true123.lottery.utils.NetUtil;
 import okhttp3.Cache;
+import okhttp3.CacheControl;
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -65,6 +71,29 @@ public class LotteryServiceManager {
                 .readTimeout(3000, TimeUnit.MILLISECONDS)
 
                 .cache(new Cache(CacheUtils.getDir(App.getAppContext()), CacheUtils.getCacheSize()))
+                .addInterceptor(new Interceptor() {
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        Request request = chain.request();
+                        if (!NetUtil.isNetAvailable()) {
+                            request = request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build();
+                        }
+                        Response response = chain.proceed(request);
+
+                        if (NetUtil.isNetAvailable()) {
+                            return response.newBuilder()
+                                    .addHeader("Cache-Control", "max-age=0")
+                                    .removeHeader("Pragma")
+                                    .build();
+                        } else {
+                            return response.newBuilder()
+                                    .addHeader("Cache-Control", "public, only-if-cached, max-stale=60*60*24*365")
+                                    .removeHeader("pragma")
+                                    .build();
+                        }
+
+                    }
+                })
                 .build();
 
         retrofit = new Retrofit.Builder()
@@ -140,6 +169,7 @@ public class LotteryServiceManager {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
+
     /**
      * Get the detail for one issue of lottery
      *
