@@ -26,7 +26,7 @@ import rx.schedulers.Schedulers;
  * Created by junbo on 15/11/2016.
  */
 
-public class RulePresenterImpl extends BasePresenterImpl<RuleView> implements RulePresenter<RuleView> {
+public class RulePresenterImpl extends BasePresenterImpl implements RulePresenter {
     Context context;
     List<Rule> ruleList = new ArrayList<>();
 
