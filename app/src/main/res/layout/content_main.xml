@@ -34,7 +34,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="cn.true123.lottery.fragment.NavFragment"
+        android:name="cn.true123.lottery.ui.fragment.NavFragment"
         android:layout_width="match_parent"
 
         android:layout_height="wrap_content"

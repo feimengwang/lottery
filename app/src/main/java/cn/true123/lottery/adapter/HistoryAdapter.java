@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 
 import java.util.List;
 
-import cn.true123.lottery.fragment.base.BaseFragment;
+import cn.true123.lottery.ui.fragment.base.BaseFragment;
 
 /**
  * Created by junbo on 7/11/2016.

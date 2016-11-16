@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="cn.true123.lottery.activities.LotteryDetailActivity">
+    tools:context=".ui.activities.LotteryDetailActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

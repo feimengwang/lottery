@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="cn.true123.lottery.activities.LotteryDetailActivity">
+    tools:context=".ui.activities.LotteryDetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
