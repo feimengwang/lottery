@@ -48,10 +48,11 @@ public class NewsDetailActivity extends BaseActivity {
         webView= new WebView(getApplicationContext());
         frameLayout.addView(webView);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl(url);
+       ;
         webView.getSettings().setSupportZoom(false);
-        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+        webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         webView.setWebChromeClient(new WebChromeClient());
+        webView.loadUrl(url);
         toolbar.setTitle(getString(R.string.news_title));
         toolbar.setNavigationIcon(R.mipmap.back);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
