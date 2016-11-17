@@ -31,7 +31,7 @@ public class AboutActivity extends BaseActivity implements AboutView {
 
     @Override
     protected void iniView() {
-        webView.getSettings().setJavaScriptEnabled(true);
+        //webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("file:///android_asset/about.html");
         toolbar.setTitle(getString(R.string.about_titile));
         toolbar.setNavigationIcon(R.mipmap.back);

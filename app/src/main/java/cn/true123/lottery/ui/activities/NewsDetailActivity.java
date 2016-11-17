@@ -11,6 +11,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 
 import butterknife.BindView;
 import cn.true123.lottery.R;
@@ -24,6 +25,8 @@ public class NewsDetailActivity extends BaseActivity {
     WebView webView;
     String url;
 
+    @BindView(R.id.content)
+    FrameLayout frameLayout;
     @Override
     protected void initIntent() {
         Intent intent = getIntent();
@@ -42,6 +45,8 @@ public class NewsDetailActivity extends BaseActivity {
 
     @Override
     protected void iniView() {
+        webView= new WebView(getApplicationContext());
+        frameLayout.addView(webView);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(url);
         webView.getSettings().setSupportZoom(false);
@@ -101,5 +106,12 @@ public class NewsDetailActivity extends BaseActivity {
         return super.onKeyUp(keyCode, event);
     }
 
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(webView!=null){
+            webView.getSettings().setJavaScriptEnabled(false);
+            webView = null;
+        }
+    }
 }
