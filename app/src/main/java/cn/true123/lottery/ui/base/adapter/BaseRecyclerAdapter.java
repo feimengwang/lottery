@@ -110,7 +110,7 @@ public abstract class BaseRecyclerAdapter<M, VH extends BaseRecyclerAdapter.Base
         MLog.i("position=" + position + ";" + getItemCount());
         if ((position < getItemCount() - 1 && hasFooter) || (!hasFooter)) {
             bindVH(holder, position);
-        } else if (hasFooter && position == getItemCount() - 1) {
+        } else if (hasFooter && position == getItemCount() - 1 && getItemCount()>1) {
             bindFooterVH(holder,position);
         }
     }

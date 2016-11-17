@@ -2,7 +2,6 @@ package cn.true123.lottery.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,15 +13,15 @@ import java.util.List;
 import butterknife.BindView;
 import cn.true123.lottery.App;
 import cn.true123.lottery.R;
+import cn.true123.lottery.model.Lottery;
 import cn.true123.lottery.ui.activities.LotteryDetailActivity;
 import cn.true123.lottery.ui.fragment.adapter.MainFragmentAdapter;
-import cn.true123.lottery.ui.fragment.base.BaseFragment;
+import cn.true123.lottery.ui.fragment.base.BaseFailFragment;
 import cn.true123.lottery.ui.fragment.listener.OnItemClickListener;
 import cn.true123.lottery.ui.fragment.presenter.MainPresenter;
 import cn.true123.lottery.ui.fragment.presenter.MainPresenterImpl;
 import cn.true123.lottery.ui.fragment.view.DividerDecoration;
 import cn.true123.lottery.ui.fragment.view.MainView;
-import cn.true123.lottery.model.Lottery;
 import cn.true123.lottery.utils.LotteryUtils;
 import mlog.true123.cn.lib.MLog;
 
@@ -30,13 +29,10 @@ import mlog.true123.cn.lib.MLog;
  * Created by junbo on 1/11/2016.
  */
 
-public class MainFragment extends BaseFragment<MainPresenter> implements MainView, OnItemClickListener {
+public class MainFragment extends BaseFailFragment<MainPresenter> implements MainView, OnItemClickListener {
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
-    @BindView(R.id.swipeRefreshLayout)
-    public SwipeRefreshLayout swipeRefreshLayout;
-
     MainFragmentAdapter adapter;
     List<Lottery.IEntity> data;
 
@@ -47,6 +43,7 @@ public class MainFragment extends BaseFragment<MainPresenter> implements MainVie
 
     @Override
     protected void initView() {
+        super.initView();
         if (data == null) data = new ArrayList<>();
         adapter = new MainFragmentAdapter(data, getActivity());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -54,14 +51,13 @@ public class MainFragment extends BaseFragment<MainPresenter> implements MainVie
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerDecoration(getActivity(), DividerDecoration.VERTICAL_LIST));
         recyclerView.setAdapter(adapter);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                swipeRefreshLayout.setRefreshing(true);
-                presenter.refresh();
-            }
-        });
+
         adapter.setOnItemClickListener(this);
+    }
+
+    @Override
+    protected void onDataRefresh() {
+        presenter.refresh();
     }
 
     @Override
@@ -86,11 +82,11 @@ public class MainFragment extends BaseFragment<MainPresenter> implements MainVie
 
     @Override
     public void update(List list) {
+        super.update(null);
         data.clear();
         data.addAll(list);
         adapter.notifyDataSetChanged();
     }
-
 
 
     @Override
@@ -107,7 +103,7 @@ public class MainFragment extends BaseFragment<MainPresenter> implements MainVie
     private void startDetailActivity(Lottery.IEntity entity) {
         Intent intent = new Intent(getActivity(), LotteryDetailActivity.class);
         Bundle b = new Bundle();
-        MLog.i("===+"+entity.getIssue()+";"+LotteryUtils.getId(entity));
+        MLog.i("===+" + entity.getIssue() + ";" + LotteryUtils.getId(entity));
         b.putString("issue", entity.getIssue());
         b.putString("lotId", LotteryUtils.getId(entity));
         intent.putExtras(b);

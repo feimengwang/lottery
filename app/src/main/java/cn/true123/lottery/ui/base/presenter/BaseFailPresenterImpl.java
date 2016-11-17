@@ -3,11 +3,16 @@ package cn.true123.lottery.ui.base.presenter;
 import cn.true123.lottery.ui.base.view.BaseView;
 
 /**
- * Created by junbo on 16/11/2016.
+ * Created by junbo on 17/11/2016.
  */
 
-public class BasePresenterImpl<T extends BaseView> implements BasePresenter<T> {
+public class BaseFailPresenterImpl<T extends BaseView> implements BaseFailPresenter<T> {
     public T view;
+
+    @Override
+    public void retry() {
+        start();
+    }
 
     @Override
     public void attach(T view) {
@@ -21,8 +26,6 @@ public class BasePresenterImpl<T extends BaseView> implements BasePresenter<T> {
 
     @Override
     public void destory() {
-        view=null;
+
     }
-
-
 }

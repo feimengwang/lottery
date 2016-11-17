@@ -2,7 +2,6 @@ package cn.true123.lottery.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,30 +12,29 @@ import java.util.List;
 
 import butterknife.BindView;
 import cn.true123.lottery.R;
+import cn.true123.lottery.model.News;
 import cn.true123.lottery.ui.activities.NewsDetailActivity;
 import cn.true123.lottery.ui.fragment.adapter.NewsFragmentAdapter;
-import cn.true123.lottery.ui.fragment.base.BaseFragment;
+import cn.true123.lottery.ui.fragment.base.BaseFailFragment;
 import cn.true123.lottery.ui.fragment.listener.OnItemClickListener;
 import cn.true123.lottery.ui.fragment.presenter.NewsPresenter;
 import cn.true123.lottery.ui.fragment.presenter.NewsPresenterImpl;
 import cn.true123.lottery.ui.fragment.view.NewsView;
-import cn.true123.lottery.model.News;
 import mlog.true123.cn.lib.MLog;
 
 /**
  * Created by junbo on 14/11/2016.
  */
 
-public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsView<News>, OnItemClickListener {
+public class NewsFragment extends BaseFailFragment<NewsPresenter> implements NewsView<News>, OnItemClickListener {
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
     List<News> data = new ArrayList<>();
     NewsFragmentAdapter adapter;
-    @BindView(R.id.swipeRefreshLayout)
-    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void initView() {
+        super.initView();
         adapter = new NewsFragmentAdapter(data, getActivity());
         adapter.setFooter(true);
         adapter.setOnItemClickListener(this);
@@ -45,14 +43,13 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsVie
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.addItemDecoration(new DivItemDecoration(DivItemDecoration.VERTICAL, 6, getResources().getColor(R.color.grey)));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                presenter.refresh();
-            }
-        });
 
 
+    }
+
+    @Override
+    protected void onDataRefresh() {
+        presenter.refresh();
     }
 
     @Override
@@ -72,6 +69,7 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsVie
 
     @Override
     public void update(List<News> list, boolean isAdd) {
+        super.update(null);
         if (!isAdd) {
             data.clear();
 

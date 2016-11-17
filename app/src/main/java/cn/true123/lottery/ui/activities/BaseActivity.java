@@ -25,6 +25,11 @@ public abstract class BaseActivity<T extends ILottery, K extends BasePresenter> 
     K presenter;
 
     @Override
+    public void fail() {
+
+    }
+
+    @Override
     public void update(List<T> list) {
 
     }

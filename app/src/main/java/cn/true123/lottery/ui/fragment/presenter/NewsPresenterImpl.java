@@ -3,6 +3,7 @@ package cn.true123.lottery.ui.fragment.presenter;
 import java.util.List;
 import java.util.Map;
 
+import cn.true123.lottery.ui.base.presenter.BaseFailPresenterImpl;
 import cn.true123.lottery.ui.base.presenter.BasePresenterImpl;
 import cn.true123.lottery.ui.fragment.view.NewsView;
 import cn.true123.lottery.model.News;
@@ -15,7 +16,7 @@ import rx.Subscriber;
  * Created by junbo on 14/11/2016.
  */
 
-public class NewsPresenterImpl extends BasePresenterImpl<NewsView> implements NewsPresenter<NewsView> {
+public class NewsPresenterImpl extends BaseFailPresenterImpl<NewsView> implements NewsPresenter<NewsView> {
     int page = 0;
     int pageSize = 20;
 
@@ -35,6 +36,7 @@ public class NewsPresenterImpl extends BasePresenterImpl<NewsView> implements Ne
 
                     @Override
                     public void onError(Throwable e) {
+                        view.fail();
                         MLog.i("onError"+e.getMessage());
                     }
 

@@ -80,7 +80,6 @@ public class MeFragment extends BaseFragment<MePresenter> implements MeView {
     }
 
 
-
     private void showDialog(final String url) {
         showDialog("检查新版本", "检查到新版本，是否更新？", new IAction() {
             @Override
@@ -115,6 +114,11 @@ public class MeFragment extends BaseFragment<MePresenter> implements MeView {
 
     @Override
     public void update(List list) {
+        super.update(null);
+    }
+
+    @Override
+    public void fail() {
 
     }
 }

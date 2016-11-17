@@ -2,6 +2,7 @@ package cn.true123.lottery.ui.fragment.presenter;
 
 import java.util.List;
 
+import cn.true123.lottery.ui.base.presenter.BaseFailPresenterImpl;
 import cn.true123.lottery.ui.base.presenter.BasePresenterImpl;
 import cn.true123.lottery.ui.fragment.view.MainView;
 import cn.true123.lottery.model.Lottery;
@@ -12,7 +13,7 @@ import rx.Subscriber;
  * Created by junbo on 1/11/2016.
  */
 
-public class MainPresenterImpl extends BasePresenterImpl<MainView> implements MainPresenter<MainView> {
+public class MainPresenterImpl extends BaseFailPresenterImpl<MainView> implements MainPresenter<MainView> {
 
     @Override
     public void refresh() {
@@ -33,6 +34,7 @@ public class MainPresenterImpl extends BasePresenterImpl<MainView> implements Ma
 
             @Override
             public void onError(Throwable e) {
+                view.fail();
                 view.dismissProgress();
             }
 

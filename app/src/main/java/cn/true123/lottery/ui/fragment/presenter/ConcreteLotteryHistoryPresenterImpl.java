@@ -1,5 +1,6 @@
 package cn.true123.lottery.ui.fragment.presenter;
 
+import cn.true123.lottery.ui.base.presenter.BaseFailPresenterImpl;
 import cn.true123.lottery.ui.base.presenter.BasePresenterImpl;
 import cn.true123.lottery.ui.fragment.view.ConcreteLotteryView;
 import cn.true123.lottery.model.LotteryHistory;
@@ -12,7 +13,7 @@ import rx.Subscriber;
  * Created by junbo on 7/11/2016.
  */
 
-public class ConcreteLotteryHistoryPresenterImpl extends BasePresenterImpl<ConcreteLotteryView> implements ConcreteLotteryHistoryPresenter<ConcreteLotteryView> {
+public class ConcreteLotteryHistoryPresenterImpl extends BaseFailPresenterImpl<ConcreteLotteryView> implements ConcreteLotteryHistoryPresenter<ConcreteLotteryView> {
     int currentPage=1;
     int pageCount=10;
     String lotId;
@@ -49,19 +50,20 @@ public class ConcreteLotteryHistoryPresenterImpl extends BasePresenterImpl<Concr
 
             @Override
             public void onError(Throwable e) {
-                MLog.i("onError"+e.getMessage());
+                MLog.i("onError" + e.getMessage());
+                view.fail();
 
             }
 
             @Override
             public void onNext(LotteryHistory o) {
-                MLog.i("onNext"+o.getList());
+                MLog.i("onNext" + o.getList());
                 pageCount = Integer.parseInt(o.getPageCount());
-                MLog.i("pc="+pageCount);
+                MLog.i("pc=" + pageCount);
                 if (view != null) {
-                    if(pageCount==1) {
+                    if (currentPage == 1) {
                         view.update(o.getList(), false);
-                    }else{
+                    } else {
                         view.update(o.getList(), true);
                     }
                 }
@@ -69,4 +71,6 @@ public class ConcreteLotteryHistoryPresenterImpl extends BasePresenterImpl<Concr
             }
         }, lotId, currentPage + "");
     }
+
+
 }

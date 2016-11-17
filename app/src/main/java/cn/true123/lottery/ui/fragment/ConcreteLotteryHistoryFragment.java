@@ -3,7 +3,6 @@ package cn.true123.lottery.ui.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,31 +13,31 @@ import java.util.List;
 
 import butterknife.BindView;
 import cn.true123.lottery.R;
+import cn.true123.lottery.model.LotteryHistory;
 import cn.true123.lottery.ui.activities.LotteryDetailActivity;
 import cn.true123.lottery.ui.fragment.adapter.HistoryFragmentAdapter;
-import cn.true123.lottery.ui.fragment.base.BaseFragment;
+import cn.true123.lottery.ui.fragment.base.BaseFailFragment;
 import cn.true123.lottery.ui.fragment.listener.OnItemClickListener;
 import cn.true123.lottery.ui.fragment.presenter.ConcreteLotteryHistoryPresenter;
 import cn.true123.lottery.ui.fragment.presenter.ConcreteLotteryHistoryPresenterImpl;
 import cn.true123.lottery.ui.fragment.view.ConcreteLotteryView;
 import cn.true123.lottery.ui.fragment.view.DividerDecoration;
-import cn.true123.lottery.model.LotteryHistory;
 import mlog.true123.cn.lib.MLog;
 
 /**
  * Created by junbo on 7/11/2016.
  */
 
-public class ConcreteLotteryHistoryFragment extends BaseFragment<ConcreteLotteryHistoryPresenter> implements ConcreteLotteryView<LotteryHistory.ListEntity>, OnItemClickListener {
+public class ConcreteLotteryHistoryFragment extends BaseFailFragment<ConcreteLotteryHistoryPresenter> implements ConcreteLotteryView<LotteryHistory.ListEntity>, OnItemClickListener {
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
-    @BindView(R.id.swipeRefreshLayout)
-     SwipeRefreshLayout swipeRefreshLayout;
+
     List<LotteryHistory.ListEntity> data;
     HistoryFragmentAdapter adapter;
 
     @Override
     protected void initView() {
+        super.initView();
         if (data == null) data = new ArrayList<>();
         adapter = new HistoryFragmentAdapter(data, getActivity());
         adapter.setFooter(true);
@@ -49,14 +48,13 @@ public class ConcreteLotteryHistoryFragment extends BaseFragment<ConcreteLottery
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerDecoration(getActivity(), DividerDecoration.VERTICAL_LIST));
         recyclerView.setAdapter(adapter);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                swipeRefreshLayout.setRefreshing(true);
-                presenter.refresh();
-            }
-        });
+
         adapter.setOnItemClickListener(this);
+    }
+
+    @Override
+    protected void onDataRefresh() {
+        presenter.refresh();
     }
 
     @Override
@@ -111,7 +109,6 @@ public class ConcreteLotteryHistoryFragment extends BaseFragment<ConcreteLottery
     }
 
 
-
     @Override
     public void onItemClick(View view, long position) {
         LotteryHistory.ListEntity entity = data.get((int) position);
@@ -137,6 +134,7 @@ public class ConcreteLotteryHistoryFragment extends BaseFragment<ConcreteLottery
 
     @Override
     public void update(List<LotteryHistory.ListEntity> list, boolean isAdd) {
+        super.update(list);
         adapter.setFlushing(false);
         if (!isAdd) {
             data.clear();

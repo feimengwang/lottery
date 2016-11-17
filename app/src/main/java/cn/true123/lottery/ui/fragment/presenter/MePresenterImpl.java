@@ -45,7 +45,7 @@ public class MePresenterImpl extends BasePresenterImpl<MeView> implements MePres
 
             @Override
             public void onError(Throwable e) {
-
+                view.fail();
             }
 
             @Override

@@ -128,4 +128,8 @@ public class NavFragment extends BaseFragment {
     }
 
 
+    @Override
+    public void fail() {
+
+    }
 }

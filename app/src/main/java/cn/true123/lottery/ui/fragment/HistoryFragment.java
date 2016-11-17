@@ -81,5 +81,10 @@ public class HistoryFragment extends BaseFragment<HistoryPresenter> implements H
         adapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void fail() {
+
+    }
+
 
 }

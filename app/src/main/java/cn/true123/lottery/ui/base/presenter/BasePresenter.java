@@ -10,4 +10,5 @@ public interface BasePresenter<T> {
     public void start();
 
     public void destory();
+
 }

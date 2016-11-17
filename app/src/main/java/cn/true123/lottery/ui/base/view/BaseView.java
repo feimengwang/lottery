@@ -14,5 +14,6 @@ public interface BaseView<T extends ILottery> {
     public void dismissDialog();
 
     public void update(List<T> list);
+    public void fail();
 }
 

@@ -27,9 +27,8 @@ import cn.true123.lottery.ui.base.view.BaseView;
 
 public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements BaseView {
 
-    protected T presenter;
-    //@BindView(R.id.swipeRefreshLayout)
-    public SwipeRefreshLayout swipeRefreshLayout;
+    public T presenter;
+
     View mRoot;
     private Dialog ad;
 
@@ -194,4 +193,5 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     public void showToast(String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
+
 }
